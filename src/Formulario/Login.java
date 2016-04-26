@@ -20,6 +20,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         //quitoaaaa
         setLocationRelativeTo(null);
+        //jhghjgjh
     }
 
     void mostrar(){
