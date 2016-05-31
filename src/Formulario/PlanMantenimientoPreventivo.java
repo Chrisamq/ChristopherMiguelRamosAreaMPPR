@@ -12,7 +12,9 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
       
     }
-
+      public PlanMantenimientoPreventivo(){
+      initComponents();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -35,7 +37,6 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
         jTextField3 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
@@ -43,18 +44,62 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
         jLabel15 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jTabbedPane3 = new javax.swing.JTabbedPane();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
-        jTabbedPane5 = new javax.swing.JTabbedPane();
+        jComboBox3 = new javax.swing.JComboBox();
+        jComboBox5 = new javax.swing.JComboBox();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtReferencias = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtPrecauciones = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        lblTitletabEquipo = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblTitleTabMecanico = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        txtSecuenciaMecanico = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        txtResultadoMecanico = new javax.swing.JTextArea();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        txtLimitesMecanico = new javax.swing.JTextArea();
+        jLabel26 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblTitleTabElectrico = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        txtSecuenciaElectrico = new javax.swing.JTextArea();
+        jLabel20 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        txtResultadoElectrico = new javax.swing.JTextArea();
+        jLabel21 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        txtLimitesElectrico = new javax.swing.JTextArea();
+        jLabel22 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        lblTitletabElectronico = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        txtLimitesElectronico = new javax.swing.JTextArea();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        txtSecuenciaElectronico = new javax.swing.JTextArea();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        txtResultadoElectronico = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -109,7 +154,6 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(10, 50, 450, 490);
-        jPanel1.getAccessibleContext().setAccessibleName("Listado de OTM");
 
         jTabbedPane2.setToolTipText("");
 
@@ -141,9 +185,7 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Sub sistema:");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(250, 70, 110, 50);
-        jPanel2.add(jTextField5);
-        jTextField5.setBounds(370, 80, 170, 30);
+        jLabel10.setBounds(-10, 110, 110, 50);
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -163,7 +205,7 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel16.setText("Clave:");
         jPanel2.add(jLabel16);
-        jLabel16.setBounds(-10, 110, 110, 50);
+        jLabel16.setBounds(-10, 290, 110, 50);
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -178,20 +220,9 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
         jPanel2.add(jButton3);
         jButton3.setBounds(430, 450, 115, 25);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel2.add(jComboBox1);
-        jComboBox1.setBounds(110, 120, 170, 30);
-
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel2.add(jComboBox2);
-        jComboBox2.setBounds(110, 80, 170, 30);
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane4.setViewportView(jTextArea2);
-
-        jPanel2.add(jScrollPane4);
-        jScrollPane4.setBounds(20, 180, 520, 130);
+        jComboBox2.setBounds(110, 300, 80, 30);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Especialidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
         jPanel3.setLayout(null);
@@ -211,14 +242,206 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
         jPanel2.add(jPanel3);
         jPanel3.setBounds(390, 330, 150, 90);
 
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox3);
+        jComboBox3.setBounds(110, 120, 400, 30);
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel2.add(jComboBox5);
+        jComboBox5.setBounds(110, 80, 170, 30);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane14.setViewportView(jTextArea1);
+
+        jPanel2.add(jScrollPane14);
+        jScrollPane14.setBounds(110, 170, 400, 110);
+
         jTabbedPane2.addTab("Datos de OTM", jPanel2);
-        jTabbedPane2.addTab("Equipos", jTabbedPane1);
-        jTabbedPane2.addTab("Mecanico", jTabbedPane3);
-        jTabbedPane2.addTab("Electrico", jTabbedPane4);
-        jTabbedPane2.addTab("Electronico", jTabbedPane5);
+
+        jPanel4.setLayout(null);
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inagen de equipo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
+        jPanel8.setLayout(null);
+
+        jPanel10.setLayout(null);
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/image-128.png"))); // NOI18N
+        jPanel10.add(jLabel3);
+        jLabel3.setBounds(0, 0, 200, 190);
+
+        jPanel8.add(jPanel10);
+        jPanel10.setBounds(10, 20, 200, 190);
+
+        jPanel4.add(jPanel8);
+        jPanel8.setBounds(20, 40, 220, 220);
+
+        txtReferencias.setColumns(20);
+        txtReferencias.setRows(5);
+        jScrollPane2.setViewportView(txtReferencias);
+
+        jPanel4.add(jScrollPane2);
+        jScrollPane2.setBounds(260, 270, 300, 190);
+
+        jLabel4.setText("Referencias");
+        jPanel4.add(jLabel4);
+        jLabel4.setBounds(260, 250, 80, 14);
+
+        txtPrecauciones.setColumns(20);
+        txtPrecauciones.setRows(5);
+        jScrollPane3.setViewportView(txtPrecauciones);
+
+        jPanel4.add(jScrollPane3);
+        jScrollPane3.setBounds(260, 50, 300, 190);
+
+        jLabel6.setText("Precauciones");
+        jPanel4.add(jLabel6);
+        jLabel6.setBounds(260, 30, 80, 14);
+
+        lblTitletabEquipo.setText("Caja de Guantes S-32,Produccion");
+        jPanel4.add(lblTitletabEquipo);
+        lblTitletabEquipo.setBounds(20, 10, 170, 14);
+
+        jTabbedPane2.addTab("Equipos", jPanel4);
+
+        jPanel5.setLayout(null);
+
+        lblTitleTabMecanico.setText("Caja de Guantes S-32,Produccion");
+        jPanel5.add(lblTitleTabMecanico);
+        lblTitleTabMecanico.setBounds(20, 10, 170, 14);
+
+        jLabel23.setText("Secuancia de actividades");
+        jPanel5.add(jLabel23);
+        jLabel23.setBounds(20, 50, 140, 14);
+
+        txtSecuenciaMecanico.setColumns(20);
+        txtSecuenciaMecanico.setRows(5);
+        jScrollPane11.setViewportView(txtSecuenciaMecanico);
+
+        jPanel5.add(jScrollPane11);
+        jScrollPane11.setBounds(20, 70, 530, 150);
+
+        jLabel24.setText("Resultados esperados");
+        jPanel5.add(jLabel24);
+        jLabel24.setBounds(20, 230, 150, 14);
+
+        txtResultadoMecanico.setColumns(20);
+        txtResultadoMecanico.setRows(5);
+        jScrollPane12.setViewportView(txtResultadoMecanico);
+
+        jPanel5.add(jScrollPane12);
+        jScrollPane12.setBounds(20, 250, 410, 70);
+
+        jLabel25.setText("Limites de aceptacion");
+        jPanel5.add(jLabel25);
+        jLabel25.setBounds(20, 330, 130, 14);
+
+        txtLimitesMecanico.setColumns(20);
+        txtLimitesMecanico.setRows(5);
+        jScrollPane13.setViewportView(txtLimitesMecanico);
+
+        jPanel5.add(jScrollPane13);
+        jScrollPane13.setBounds(20, 350, 410, 70);
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construction_worker-128.png"))); // NOI18N
+        jPanel5.add(jLabel26);
+        jLabel26.setBounds(430, 290, 120, 130);
+
+        jTabbedPane2.addTab("Mecanico", jPanel5);
+
+        jPanel6.setLayout(null);
+
+        lblTitleTabElectrico.setText("Caja de Guantes S-32,Produccion");
+        jPanel6.add(lblTitleTabElectrico);
+        lblTitleTabElectrico.setBounds(20, 10, 170, 14);
+
+        jLabel19.setText("Secuancia de actividades");
+        jPanel6.add(jLabel19);
+        jLabel19.setBounds(20, 50, 140, 14);
+
+        txtSecuenciaElectrico.setColumns(20);
+        txtSecuenciaElectrico.setRows(5);
+        jScrollPane7.setViewportView(txtSecuenciaElectrico);
+
+        jPanel6.add(jScrollPane7);
+        jScrollPane7.setBounds(20, 70, 530, 150);
+
+        jLabel20.setText("Resultados esperados");
+        jPanel6.add(jLabel20);
+        jLabel20.setBounds(20, 230, 150, 14);
+
+        txtResultadoElectrico.setColumns(20);
+        txtResultadoElectrico.setRows(5);
+        jScrollPane9.setViewportView(txtResultadoElectrico);
+
+        jPanel6.add(jScrollPane9);
+        jScrollPane9.setBounds(20, 250, 410, 70);
+
+        jLabel21.setText("Limites de aceptacion");
+        jPanel6.add(jLabel21);
+        jLabel21.setBounds(20, 330, 130, 14);
+
+        txtLimitesElectrico.setColumns(20);
+        txtLimitesElectrico.setRows(5);
+        jScrollPane10.setViewportView(txtLimitesElectrico);
+
+        jPanel6.add(jScrollPane10);
+        jScrollPane10.setBounds(20, 350, 410, 70);
+
+        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construction_worker-128.png"))); // NOI18N
+        jPanel6.add(jLabel22);
+        jLabel22.setBounds(430, 290, 120, 130);
+
+        jTabbedPane2.addTab("Electrico", jPanel6);
+
+        jPanel7.setLayout(null);
+
+        lblTitletabElectronico.setText("Caja de Guantes S-32,Produccion");
+        jPanel7.add(lblTitletabElectronico);
+        lblTitletabElectronico.setBounds(20, 10, 170, 14);
+
+        txtLimitesElectronico.setColumns(20);
+        txtLimitesElectronico.setRows(5);
+        jScrollPane5.setViewportView(txtLimitesElectronico);
+
+        jPanel7.add(jScrollPane5);
+        jScrollPane5.setBounds(20, 350, 410, 70);
+
+        txtSecuenciaElectronico.setColumns(20);
+        txtSecuenciaElectronico.setRows(5);
+        jScrollPane6.setViewportView(txtSecuenciaElectronico);
+
+        jPanel7.add(jScrollPane6);
+        jScrollPane6.setBounds(20, 70, 530, 150);
+
+        txtResultadoElectronico.setColumns(20);
+        txtResultadoElectronico.setRows(5);
+        jScrollPane8.setViewportView(txtResultadoElectronico);
+
+        jPanel7.add(jScrollPane8);
+        jScrollPane8.setBounds(20, 250, 410, 70);
+
+        jLabel12.setText("Secuancia de actividades");
+        jPanel7.add(jLabel12);
+        jLabel12.setBounds(20, 50, 140, 14);
+
+        jLabel13.setText("Resultados esperados");
+        jPanel7.add(jLabel13);
+        jLabel13.setBounds(20, 230, 150, 14);
+
+        jLabel17.setText("Limites de aceptacion");
+        jPanel7.add(jLabel17);
+        jLabel17.setBounds(20, 330, 130, 14);
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/construction_worker-128.png"))); // NOI18N
+        jPanel7.add(jLabel18);
+        jLabel18.setBounds(430, 290, 120, 130);
+
+        jTabbedPane2.addTab("Electronico", jPanel7);
 
         getContentPane().add(jTabbedPane2);
-        jTabbedPane2.setBounds(460, 40, 580, 500);
+        jTabbedPane2.setBounds(470, 40, 580, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -292,36 +515,79 @@ public class PlanMantenimientoPreventivo extends javax.swing.JDialog {
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTabbedPane jTabbedPane3;
-    private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField9;
     private org.edisoncor.gui.label.LabelHeader labelHeader1;
+    private javax.swing.JLabel lblTitleTabElectrico;
+    private javax.swing.JLabel lblTitleTabMecanico;
+    private javax.swing.JLabel lblTitletabElectronico;
+    private javax.swing.JLabel lblTitletabEquipo;
+    private javax.swing.JTextArea txtLimitesElectrico;
+    private javax.swing.JTextArea txtLimitesElectronico;
+    private javax.swing.JTextArea txtLimitesMecanico;
+    private javax.swing.JTextArea txtPrecauciones;
+    private javax.swing.JTextArea txtReferencias;
+    private javax.swing.JTextArea txtResultadoElectrico;
+    private javax.swing.JTextArea txtResultadoElectronico;
+    private javax.swing.JTextArea txtResultadoMecanico;
+    private javax.swing.JTextArea txtSecuenciaElectrico;
+    private javax.swing.JTextArea txtSecuenciaElectronico;
+    private javax.swing.JTextArea txtSecuenciaMecanico;
     // End of variables declaration//GEN-END:variables
 }

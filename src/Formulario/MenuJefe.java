@@ -41,10 +41,11 @@ public class MenuJefe extends javax.swing.JFrame {
         jMenu9 = new javax.swing.JMenu();
         tabCambiarFecha = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        tabEquipos = new javax.swing.JMenuItem();
         tabPersonal = new javax.swing.JMenuItem();
         tabImprimir = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        tabManteminientoPreventivo = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jMenuItem15 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -116,11 +117,29 @@ public class MenuJefe extends javax.swing.JFrame {
         jMenu9.add(tabCambiarFecha);
 
         jMenuItem10.setText("Correr programa");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu9.add(jMenuItem10);
 
         jMenu4.add(jMenu9);
 
+        tabEquipos.setText("Equipos");
+        tabEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabEquiposActionPerformed(evt);
+            }
+        });
+        jMenu4.add(tabEquipos);
+
         tabPersonal.setText("Personal");
+        tabPersonal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tabPersonalActionPerformed(evt);
+            }
+        });
         jMenu4.add(tabPersonal);
 
         tabImprimir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
@@ -134,14 +153,14 @@ public class MenuJefe extends javax.swing.JFrame {
         jMenu6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenu6.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setText("Plan Mant. Preventivo");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        tabManteminientoPreventivo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        tabManteminientoPreventivo.setText("Plan Mant. Preventivo");
+        tabManteminientoPreventivo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                tabManteminientoPreventivoActionPerformed(evt);
             }
         });
-        jMenu6.add(jMenuItem6);
+        jMenu6.add(tabManteminientoPreventivo);
 
         jMenuItem14.setText("Programacion");
         jMenu6.add(jMenuItem14);
@@ -320,8 +339,16 @@ public class MenuJefe extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_tab_Personal
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-
+    private void tabManteminientoPreventivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabManteminientoPreventivoActionPerformed
+ try {
+        
+        PlanMantenimientoPreventivo BGesPer = new PlanMantenimientoPreventivo();
+        BGesPer.setLocationRelativeTo(null);
+        BGesPer.setVisible(true);        
+        
+         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error de Coneccion");
+        } 
 //        try {
 //            JFAlmacen almacen = new JFAlmacen();
 //            limpiarEscritorio();
@@ -332,7 +359,7 @@ public class MenuJefe extends javax.swing.JFrame {
 //        }
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_tabManteminientoPreventivoActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
 
@@ -398,6 +425,44 @@ public class MenuJefe extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Error de Coneccion");
         }
     }//GEN-LAST:event_tabCambiarFechaActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+         try {
+        
+        IniciarProgramacion IniPro = new IniciarProgramacion(this,true);
+        IniPro.setLocationRelativeTo(null);
+        IniPro.setVisible(true);        
+        
+         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error de Coneccion");
+        } // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void tabEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabEquiposActionPerformed
+ try {
+        
+        GestionarSistema BPro = new GestionarSistema();
+        BPro.setLocationRelativeTo(null);
+        BPro.setVisible(true);        
+        
+         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error de Coneccion");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_tabEquiposActionPerformed
+
+    private void tabPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabPersonalActionPerformed
+        // TODO add your handling code here:
+        try {
+        
+        GestionarPersonal BGesPer = new GestionarPersonal();
+        BGesPer.setLocationRelativeTo(null);
+        BGesPer.setVisible(true);        
+        
+         } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error de Coneccion");
+        } 
+        
+    }//GEN-LAST:event_tabPersonalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,7 +530,6 @@ public class MenuJefe extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
@@ -475,7 +539,9 @@ public class MenuJefe extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
     private javax.swing.JMenuItem tabCambiarFecha;
+    private javax.swing.JMenuItem tabEquipos;
     private javax.swing.JMenuItem tabImprimir;
+    private javax.swing.JMenuItem tabManteminientoPreventivo;
     private javax.swing.JMenuItem tabPersonal;
     private javax.swing.JMenuItem tabcopiar;
     private javax.swing.JMenuItem tabcortar;

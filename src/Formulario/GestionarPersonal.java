@@ -6,13 +6,16 @@ import javax.swing.JOptionPane;
 
 public class GestionarPersonal extends javax.swing.JDialog {
 
+    
     public GestionarPersonal(java.awt.Frame parent, boolean modal) throws Exception {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
       
     }
-
+  public GestionarPersonal() {
+        initComponents();
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
