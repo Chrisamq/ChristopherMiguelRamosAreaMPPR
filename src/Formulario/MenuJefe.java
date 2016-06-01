@@ -454,7 +454,7 @@ public class MenuJefe extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
         
-        GestionarPersonal BGesPer = new GestionarPersonal();
+        GestionarPersonal BGesPer = new GestionarPersonal(this,true);
         BGesPer.setLocationRelativeTo(null);
         BGesPer.setVisible(true);        
         
