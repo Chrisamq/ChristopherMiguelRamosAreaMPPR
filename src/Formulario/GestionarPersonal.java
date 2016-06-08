@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -25,19 +26,28 @@ public class GestionarPersonal extends javax.swing.JDialog {
     MultipleFiltro mf;
     ArrayList<MultipleFiltro> lista;
     Validacion v;
-    
+
+        
     public GestionarPersonal(java.awt.Frame parent, boolean modal) throws Exception {
          super(parent, modal);
         initComponents();
        //limitar el numero de caracteres de los campos
         txtCodigo.setDocument(new LimiteJTextField(5));
         
-        
-        
         this.setLocationRelativeTo(null);
         mostrarListadoPersonal();
         llenarACombo();
         cargarImagenFotoNull();
+        lblAccion.setText("REGISTRO");
+        checkRegistrar.setSelected(true);
+         llenarComboEspecialiad();
+    }
+    void llenarComboEspecialiad() {
+        DefaultComboBoxModel modelComboEspecialidad = new DefaultComboBoxModel();
+        C_Especialidad ctrl = new C_Especialidad();
+        modelComboEspecialidad = ctrl.llenarComboEspecialidad();
+        comboEspecialidad.setModel(modelComboEspecialidad);
+        
     }
    private void restaurarValoresDiseno(){
          Color colorbg=new Color(58,58,58);
@@ -125,9 +135,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         for (E_Personal valor : list) {    
             Object[] objs = {valor.getIdTrabajador(), valor.getCodigo(), valor.getApellidoP(), valor.getApellidoM(), valor.getNombre()};
             modelo.addRow(objs);
-
         }
-
     }
     
     
@@ -187,23 +195,14 @@ public class GestionarPersonal extends javax.swing.JDialog {
             return id;
         }
 
-        /**
-         * @param id the id to set
-         */
         public void setId(int id) {
             this.id = id;
         }
 
-        /**
-         * @return the nombre
-         */
         public String getNombre() {
             return nombre;
         }
 
-        /**
-         * @param nombre the nombre to set
-         */
         public void setNombre(String nombre) {
             this.nombre = nombre;
         }
@@ -235,7 +234,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         txtApellidoMaterno = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         txtRuta = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        lblEspecialidad = new javax.swing.JLabel();
         txtTitulo = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
@@ -263,8 +262,10 @@ public class GestionarPersonal extends javax.swing.JDialog {
         jLabel20 = new javax.swing.JLabel();
         txtCelular = new javax.swing.JTextField();
         txtDireccion1 = new javax.swing.JTextField();
-        btnCambiarImagen2 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        comboEspecialidad = new javax.swing.JComboBox();
+        checkRegistrar = new javax.swing.JCheckBox();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -313,10 +314,10 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         tablePersonal.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 tablePersonalCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         tablePersonal.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -330,7 +331,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         jScrollPane1.setViewportView(tablePersonal);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 110, 430, 370);
+        jScrollPane1.setBounds(10, 110, 430, 420);
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -355,7 +356,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         txtTextoBusqueda.setBounds(170, 40, 270, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(10, 50, 450, 520);
+        jPanel1.setBounds(10, 50, 450, 540);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
         jPanel2.setLayout(null);
@@ -368,12 +369,12 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         jPanel2.add(btnGuardar);
-        btnGuardar.setBounds(290, 480, 115, 25);
+        btnGuardar.setBounds(290, 500, 115, 25);
 
         lblAccion.setFont(new java.awt.Font("Segoe UI Black", 3, 36)); // NOI18N
         lblAccion.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel2.add(lblAccion);
-        lblAccion.setBounds(50, -10, 230, 50);
+        lblAccion.setBounds(50, 10, 290, 30);
 
         txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -403,15 +404,16 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         txtApellidoPaterno.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtApellidoPaternoKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtApellidoPaternoKeyTyped(evt);
+            }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtApellidoPaternoKeyPressed(evt);
             }
         });
         jPanel2.add(txtApellidoPaterno);
         txtApellidoPaterno.setBounds(110, 80, 170, 30);
+        txtApellidoPaterno.getAccessibleContext().setAccessibleParent(jPanel1);
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -447,13 +449,13 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         jPanel2.add(txtRuta);
-        txtRuta.setBounds(110, 440, 150, 30);
+        txtRuta.setBounds(110, 460, 150, 30);
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel12.setText("Titulo:");
-        jPanel2.add(jLabel12);
-        jLabel12.setBounds(250, 30, 110, 50);
+        lblEspecialidad.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        lblEspecialidad.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblEspecialidad.setText("Especialidad:");
+        jPanel2.add(lblEspecialidad);
+        lblEspecialidad.setBounds(250, 30, 110, 50);
 
         txtTitulo.setName(""); // NOI18N
         txtTitulo.addActionListener(new java.awt.event.ActionListener() {
@@ -462,13 +464,13 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         jPanel2.add(txtTitulo);
-        txtTitulo.setBounds(370, 40, 110, 30);
+        txtTitulo.setBounds(370, 80, 140, 30);
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel13.setText("Fecha Nacimiento:");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(280, 290, 100, 30);
+        jLabel13.setBounds(280, 310, 100, 30);
 
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -481,7 +483,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         jPanel2.add(txtCorreo);
-        txtCorreo.setBounds(370, 80, 110, 30);
+        txtCorreo.setBounds(370, 120, 140, 30);
 
         txtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -489,21 +491,21 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtDniKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDniKeyTyped(evt);
             }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtDniKeyPressed(evt);
+            }
         });
         jPanel2.add(txtDni);
-        txtDni.setBounds(370, 120, 110, 30);
+        txtDni.setBounds(370, 160, 140, 30);
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel14.setText("DNI:");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(250, 110, 110, 50);
+        jLabel14.setBounds(250, 150, 110, 50);
 
         checkTrabajando.setText("Esta trabajando?");
         checkTrabajando.addActionListener(new java.awt.event.ActionListener() {
@@ -540,7 +542,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("Tlf. de casa:");
         jPanel2.add(jLabel15);
-        jLabel15.setBounds(250, 150, 110, 50);
+        jLabel15.setBounds(250, 190, 110, 50);
 
         txtTelefonoCasa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -548,34 +550,34 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         txtTelefonoCasa.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtTelefonoCasaKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtTelefonoCasaKeyTyped(evt);
             }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelefonoCasaKeyPressed(evt);
+            }
         });
         jPanel2.add(txtTelefonoCasa);
-        txtTelefonoCasa.setBounds(370, 160, 110, 30);
+        txtTelefonoCasa.setBounds(370, 200, 140, 30);
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Correo:");
         jPanel2.add(jLabel17);
-        jLabel17.setBounds(250, 70, 110, 50);
+        jLabel17.setBounds(250, 110, 110, 50);
 
         dtFechaIngreso.setDateFormatString("dd/MM/yyy");
         jPanel2.add(dtFechaIngreso);
-        dtFechaIngreso.setBounds(370, 250, 110, 30);
+        dtFechaIngreso.setBounds(370, 280, 140, 30);
 
         jScrollPane2.setViewportView(imgPersonal);
 
         jPanel2.add(jScrollPane2);
-        jScrollPane2.setBounds(110, 300, 150, 130);
+        jScrollPane2.setBounds(110, 320, 150, 130);
 
         jLabel3.setText("Informacion adicional de personal");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(290, 350, 190, 14);
+        jLabel3.setBounds(290, 370, 190, 14);
 
         btnCancelar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -585,14 +587,14 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         jPanel2.add(btnCancelar);
-        btnCancelar.setBounds(410, 480, 115, 25);
+        btnCancelar.setBounds(410, 500, 115, 25);
 
         txtInformacionAdicional.setColumns(20);
         txtInformacionAdicional.setRows(5);
         jScrollPane3.setViewportView(txtInformacionAdicional);
 
         jPanel2.add(jScrollPane3);
-        jScrollPane3.setBounds(290, 370, 260, 100);
+        jScrollPane3.setBounds(290, 390, 260, 100);
 
         jLabel4.setText("Foto de perfil");
         jPanel2.add(jLabel4);
@@ -602,7 +604,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel19.setText("Fecha de ingreso:");
         jPanel2.add(jLabel19);
-        jLabel19.setBounds(260, 240, 110, 50);
+        jLabel19.setBounds(260, 270, 110, 50);
 
         btnCambiarImagen1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCambiarImagen1.setText("Cambiar Imagen");
@@ -612,27 +614,27 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         jPanel2.add(btnCambiarImagen1);
-        btnCambiarImagen1.setBounds(120, 480, 130, 25);
+        btnCambiarImagen1.setBounds(120, 500, 130, 25);
 
         comboMesNacimiento.setMaximumRowCount(10);
         comboMesNacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mes", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
         comboMesNacimiento.setToolTipText("");
         jPanel2.add(comboMesNacimiento);
-        comboMesNacimiento.setBounds(370, 320, 70, 20);
+        comboMesNacimiento.setBounds(370, 340, 70, 20);
 
         comboAnoNacimiento.setMaximumRowCount(10);
         jPanel2.add(comboAnoNacimiento);
-        comboAnoNacimiento.setBounds(450, 320, 70, 20);
+        comboAnoNacimiento.setBounds(450, 340, 70, 20);
 
         comboDiaNacimiento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         jPanel2.add(comboDiaNacimiento);
-        comboDiaNacimiento.setBounds(290, 320, 70, 20);
+        comboDiaNacimiento.setBounds(290, 340, 70, 20);
 
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel20.setText("Tlf. Celular:");
         jPanel2.add(jLabel20);
-        jLabel20.setBounds(250, 190, 110, 50);
+        jLabel20.setBounds(250, 230, 110, 50);
 
         txtCelular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -640,15 +642,15 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         txtCelular.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtCelularKeyPressed(evt);
-            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtCelularKeyTyped(evt);
             }
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCelularKeyPressed(evt);
+            }
         });
         jPanel2.add(txtCelular);
-        txtCelular.setBounds(370, 200, 110, 30);
+        txtCelular.setBounds(370, 240, 140, 30);
 
         txtDireccion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -663,29 +665,38 @@ public class GestionarPersonal extends javax.swing.JDialog {
         jPanel2.add(txtDireccion1);
         txtDireccion1.setBounds(110, 200, 170, 30);
 
-        btnCambiarImagen2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCambiarImagen2.setText("Nuevo");
-        btnCambiarImagen2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnCambiarImagen2MouseClicked(evt);
-            }
-        });
-        btnCambiarImagen2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarImagen2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnCambiarImagen2);
-        btnCambiarImagen2.setBounds(10, 250, 90, 40);
-
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel18.setText("Codigo:");
         jPanel2.add(jLabel18);
         jLabel18.setBounds(-10, 30, 110, 50);
 
+        jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel21.setText("Titulo:");
+        jPanel2.add(jLabel21);
+        jLabel21.setBounds(250, 70, 110, 50);
+
+        comboEspecialidad.setMaximumRowCount(10);
+        jPanel2.add(comboEspecialidad);
+        comboEspecialidad.setBounds(370, 40, 140, 30);
+
+        checkRegistrar.setText("Registrar");
+        checkRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                checkRegistrarMouseClicked(evt);
+            }
+        });
+        checkRegistrar.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                checkRegistrarStateChanged(evt);
+            }
+        });
+        jPanel2.add(checkRegistrar);
+        checkRegistrar.setBounds(10, 240, 69, 23);
+
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(470, 50, 570, 520);
+        jPanel2.setBounds(470, 50, 570, 540);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1091,7 +1102,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
     }//GEN-LAST:event_txtTelefonoCasaKeyTyped
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnCambiarImagen1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarImagen1ActionPerformed
@@ -1159,13 +1170,18 @@ public class GestionarPersonal extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtDireccion1KeyTyped
 
-    private void btnCambiarImagen2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCambiarImagen2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCambiarImagen2MouseClicked
+    private void checkRegistrarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_checkRegistrarStateChanged
+  
+    }//GEN-LAST:event_checkRegistrarStateChanged
 
-    private void btnCambiarImagen2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarImagen2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCambiarImagen2ActionPerformed
+    private void checkRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_checkRegistrarMouseClicked
+    if(checkRegistrar.isSelected()){
+      lblAccion.setText("REGISTRO");
+     }
+     else{
+      lblAccion.setText("ACTUALIZACION");
+     }
+    }//GEN-LAST:event_checkRegistrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1222,12 +1238,13 @@ public class GestionarPersonal extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCambiarImagen1;
-    private javax.swing.JButton btnCambiarImagen2;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JCheckBox checkRegistrar;
     private javax.swing.JCheckBox checkTrabajando;
     private javax.swing.JComboBox comboAnoNacimiento;
     private javax.swing.JComboBox comboDiaNacimiento;
+    private javax.swing.JComboBox comboEspecialidad;
     private javax.swing.JComboBox comboMesNacimiento;
     private com.toedter.calendar.JDateChooser dtFechaIngreso;
     private javax.swing.JLabel imgPersonal;
@@ -1236,7 +1253,6 @@ public class GestionarPersonal extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1246,6 +1262,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
@@ -1258,6 +1275,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane3;
     private org.edisoncor.gui.label.LabelHeader labelHeader1;
     private javax.swing.JLabel lblAccion;
+    private javax.swing.JLabel lblEspecialidad;
     private javax.swing.JTable tablePersonal;
     private javax.swing.JTextField txtApellidoMaterno;
     private javax.swing.JTextField txtApellidoPaterno;

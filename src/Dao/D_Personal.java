@@ -87,7 +87,6 @@ public class D_Personal {
                 obj.setIdTrabajador(rs.getInt("IdTrabajador"));
                 obj.setCodigo(rs.getInt("Codigo"));
                 obj.setIdEspecialidad(rs.getInt("IdEspecialidad"));
-                obj.setIdPerfil(rs.getInt("IdPerfil"));
                 obj.setNombre(rs.getString("Nombre"));
                 obj.setApellidoP(rs.getString("ApellidoP"));
                 obj.setApellidoM(rs.getString("ApellidoM"));
@@ -114,9 +113,8 @@ public class D_Personal {
         
       int resultado=0;
         try {
-            CallableStatement csta = cn.prepareCall("{ call Trabajador_Registrar (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            CallableStatement csta = cn.prepareCall("{ call Trabajador_Registrar (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
             csta.setInt("parIdEspecialidad", 1);
-            csta.setInt("parIdPerfil", 1);
             csta.setInt("parCodigo", obj.getCodigo());
             csta.setString("parTitulo", obj.getTitulo());
             csta.setString("parNombre", obj.getNombre());
