@@ -1,5 +1,6 @@
 package Util;
 
+import java.awt.Color;
 import static javax.management.Query.lt;
 
 public class Util {
@@ -127,5 +128,47 @@ public class Util {
             habilitarCampos((javax.swing.JPanel) comp);
         }
     }
-    
+ 
+        public void RestaurarValorForm(Object panel) {
+// Obtenemos el nombre de la clase
+        String nombre_clase = panel.getClass().getName();
+        if (nombre_clase.equals("javax.swing.JPanel")) {
+// Estamos en el caso de un JPanel
+            RestaurarValorPanel((javax.swing.JPanel) panel);
+        }
+    }
+
+
+ private void RestaurarValorPanel(javax.swing.JPanel panel) {
+// Obtenemos todos los componentes que cuelgan del panel
+        java.awt.Component[] componentes = panel.getComponents();
+        for (int i = 0; i < componentes.length; i++) {
+            PintarComponent(componentes[i]);
+        }
+    }
+
+
+
+  private void PintarComponent(java.awt.Component comp) {
+// Nombre de la clase del componente
+      
+        Color colorbg=new Color(58,58,58);
+        Color colortext=new Color(204,204,204);
+         
+      
+        String nombre_clase = comp.getClass().getName();
+        if (nombre_clase.equals("javax.swing.JTextField")) {
+            // Es un JTextField asi que lo ponemos en blanco
+            ((javax.swing.JTextField) comp).setBackground(colorbg);
+            ((javax.swing.JTextField) comp).setForeground(colortext);
+        } else if (nombre_clase.equals("javax.swing.JTextArea")) {
+            // Es un JTextArea asi que lo ponemos en blanco
+            ((javax.swing.JTextArea) comp).setBackground(colorbg);
+            ((javax.swing.JTextArea) comp).setForeground(colortext);
+        } else if (nombre_clase.equals("javax.swing.JPanel")) {
+            // Es un JPanel asi que llamamos a clearPanel
+            clearPanel((javax.swing.JPanel) comp);
+        } 
+    }
+
 }
