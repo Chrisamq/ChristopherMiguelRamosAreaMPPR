@@ -26,12 +26,12 @@ public class Login extends javax.swing.JFrame {
     void mostrar(){
         try{
         DefaultTableModel modelo;
+        
         C_Usuario ctrl=new C_Usuario();
         modelo=ctrl.mostrar();
         //tabledatos.setModel(modelo);
         }
         catch(Exception ex){}
-        
     }
       private void limpiarControles() {
         txtUsuario.setText("");
@@ -190,8 +190,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContraseñaKeyTyped
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
-
- try {
+      try {
             E_Usuario objUsuario;
             C_Usuario ctrlUsuario = new C_Usuario();
 
@@ -209,10 +208,6 @@ public class Login extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error de Coneccion", "Usuarios", JOptionPane.ERROR_MESSAGE);
         }
-
-
-
-
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
