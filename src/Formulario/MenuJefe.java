@@ -439,6 +439,7 @@ public class MenuJefe extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void tabEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabEquiposActionPerformed
+
  try {
         
         GestionarSistema BPro = new GestionarSistema();
@@ -447,7 +448,7 @@ public class MenuJefe extends javax.swing.JFrame {
         
          } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error de Coneccion");
-        }        // TODO add your handling code here:
+        } 
     }//GEN-LAST:event_tabEquiposActionPerformed
 
     private void tabPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tabPersonalActionPerformed

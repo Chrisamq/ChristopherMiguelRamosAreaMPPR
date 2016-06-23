@@ -287,7 +287,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(1220, 210, 287, 111);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Listado de personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Listado de personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
         jPanel1.setLayout(null);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Personal_-56-64.png"))); // NOI18N
@@ -313,10 +313,10 @@ public class GestionarPersonal extends javax.swing.JDialog {
             }
         });
         tablePersonal.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 tablePersonalCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         tablePersonal.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -357,7 +357,7 @@ public class GestionarPersonal extends javax.swing.JDialog {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(10, 50, 450, 520);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, null, new java.awt.Color(153, 153, 153)));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de personal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(153, 153, 153))); // NOI18N
         jPanel2.setLayout(null);
 
         btnGuardar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -589,6 +589,11 @@ public class GestionarPersonal extends javax.swing.JDialog {
 
         txtInformacionAdicional.setColumns(20);
         txtInformacionAdicional.setRows(5);
+        txtInformacionAdicional.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtInformacionAdicionalKeyTyped(evt);
+            }
+        });
         jScrollPane3.setViewportView(txtInformacionAdicional);
 
         jPanel2.add(jScrollPane3);
@@ -1166,6 +1171,10 @@ public class GestionarPersonal extends javax.swing.JDialog {
     private void btnCambiarImagen2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarImagen2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCambiarImagen2ActionPerformed
+
+    private void txtInformacionAdicionalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtInformacionAdicionalKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtInformacionAdicionalKeyTyped
 
     /**
      * @param args the command line arguments

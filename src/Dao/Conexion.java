@@ -13,6 +13,8 @@ public class Conexion {
     
     Connection con;
     String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    //static String cadena = "jdbc:sqlserver://192.168.1.7:1433;databaseName=BD_MPPR";
+    
     static String cadena = "jdbc:sqlserver://lenovo01:1433;databaseName=BD_MPPR";
                             
     static String user = "sa";
